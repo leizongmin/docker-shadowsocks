@@ -1,5 +1,5 @@
 # This dockerfile uses the centos7 image
-# VERSION 2 - EDITION 1
+# VERSION 1 - EDITION 1
 # Author: Zongmin Lei
 # Command format: Instruction [arguments / command] ..
 
@@ -13,5 +13,7 @@ RUN yum update -y
 RUN yum -y install python-pip
 RUN pip install shadowsocks
 
-ENTRYPOINT ["/usr/local/bin/ssserver", "-k $PASSWORD"]
+ENV PASSWORD 1234567
+
+ENTRYPOINT ["/usr/bin/ssserver", "-k $PASSWORD"]
 EXPOSE 8388
