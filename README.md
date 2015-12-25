@@ -4,10 +4,14 @@ Shadowsocks server docker image.
 
 ## Installation
 
+Run the following commands:
+
 ```bash
 $ docker pull leizongmin/shadowsocks:latest
 $ docker run -it -e SS_PASSWORD={your_password_here} -e SS_METHOD={encrypt_method_here} -p 8338:8338 leizongmin/shadowsocks:latest
 ```
+
+Notes: replace the `{your_password_here}` and `{encrypt_method_here}` to your password and encrypt method.
 
 ### Environment variables
 
@@ -16,7 +20,7 @@ $ docker run -it -e SS_PASSWORD={your_password_here} -e SS_METHOD={encrypt_metho
 
 ### Expose ports
 
-+ `8338`
++ `8338`: port of shadowsocks service
 
 ## License
 
