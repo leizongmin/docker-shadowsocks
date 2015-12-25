@@ -8,12 +8,17 @@ FROM centos:7
 
 MAINTAINER Zongmin Lei <leizongmin@gmail.com>
 
-RUN rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-RUN yum update -y
-RUN yum -y install python-pip
+RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "/tmp/get-pip.py"
+RUN python "/tmp/get-pip.py"
+
+RUN pip install --upgrade pip
 RUN pip install shadowsocks
 
-ENV PASSWORD 1234567
+ENV SS_PASSWORD 1234567
+ENV SS_METHOD aes-256-cfb
 
-ENTRYPOINT ["/usr/bin/ssserver", "-k $PASSWORD"]
+RUN echo "password: ${SS_PASSWORD}"
+RUN echo "method:   ${SS_METHOD}"
+
+ENTRYPOINT ["/usr/bin/ssserver", "-k ${SS_PASSWORD} -m ${SS_METHOD}"]
 EXPOSE 8388
