@@ -17,8 +17,5 @@ RUN pip install shadowsocks
 ENV SS_PASSWORD 1234567
 ENV SS_METHOD aes-256-cfb
 
-RUN echo "password: ${SS_PASSWORD}"
-RUN echo "method:   ${SS_METHOD}"
-
-ENTRYPOINT ["/usr/bin/ssserver", "-k ${SS_PASSWORD} -m ${SS_METHOD}"]
+ENTRYPOINT /usr/bin/ssserver -k ${SS_PASSWORD} -m ${SS_METHOD}
 EXPOSE 8388
