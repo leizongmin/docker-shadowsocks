@@ -27,7 +27,7 @@ Notes: replace the `{your_password_here}` and `{encrypt_method_here}` to your pa
 ```
 The MIT License (MIT)
 
-Copyright (c) 2015 Zongmin Lei <leizongmin@gmail.com>
+Copyright (c) 2015-2016 Zongmin Lei <leizongmin@gmail.com>
 http://ucdok.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
